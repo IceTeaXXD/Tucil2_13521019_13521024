@@ -3,7 +3,23 @@ import matplotlib.pyplot as plt
 from ClosestPair import*
 from Plot import*
 
-points = [(21, 13, 4), (12, 30, 5), (40, 50, 6), (5, 1, 7), (12, 10, 20), (3, 4, 9)]
+n = int(input("Masukkan banyaknya titik: "))
+# generate random points
+points = np.random.randint(-100, 100, (n, 3))
+
+min = 0
+
+# brute force method to see closest distance
+for i in range(len(points)):
+    for j in range(i + 1, len(points)):
+        if min == 0:
+            min = np.linalg.norm(np.array(points[i]) - np.array(points[j]))
+        else:
+            if min > np.linalg.norm(np.array(points[i]) - np.array(points[j])):
+                min = np.linalg.norm(np.array(points[i]) - np.array(points[j]))
+
+print(min)
+
 closest_pair = closest_pair(points)
 print('Closest pair of points:')
 print(f'Point 1 : {closest_pair[0]}')
