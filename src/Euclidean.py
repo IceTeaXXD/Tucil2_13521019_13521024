@@ -1,8 +1,8 @@
 import numpy as np
 import math
-# Calculate Euclidean Distance in 3D Space
+# Calculate Euclidean Distance in R^n
 def EuclideanDistance3D(point1, point2):
-    return math.sqrt((point1[0] - point2[0])**2 + (point1[1] - point2[1])**2 + (point1[2] - point2[2])**2)
+    return math.sqrt(sum([(point1[i] - point2[i]) ** 2 for i in range(len(point1))]))
 
 def SortPoints(points):
     for i in range(len(points)):
