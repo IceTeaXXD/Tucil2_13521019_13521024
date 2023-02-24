@@ -6,7 +6,7 @@ def closest_pair(points):
     if n <= 1:
         return None, None, float('inf')
     elif n == 2:
-        return points[0], points[1], EuclideanDistance3D(points[0], points[1])
+        return points[0], points[1], EuclideanDistance(points[0], points[1])
     else:
         sorted_x = sorted(points, key=lambda p: p[0])
         mid = n // 2
@@ -34,6 +34,17 @@ def closest_pair_strip(strip, d):
         for j in range(i+1, n):
             if abs(sorted_y[j][1] - sorted_y[i][1]) >= d:
                 break
-            if EuclideanDistance3D(sorted_y[i], sorted_y[j]) < min_pair[2]:
-                min_pair = sorted_y[i], sorted_y[j], EuclideanDistance3D(sorted_y[i], sorted_y[j])
+            if EuclideanDistance(sorted_y[i], sorted_y[j]) < min_pair[2]:
+                min_pair = sorted_y[i], sorted_y[j], EuclideanDistance(sorted_y[i], sorted_y[j])
     return min_pair
+
+def brute_force(points):
+    min = 0
+    for i in range(len(points)):
+        for j in range(i + 1, len(points)):
+            if min == 0:
+                min = np.linalg.norm(np.array(points[i]) - np.array(points[j]))
+            else:
+                if min > np.linalg.norm(np.array(points[i]) - np.array(points[j])):
+                    min = np.linalg.norm(np.array(points[i]) - np.array(points[j]))
+    return min
