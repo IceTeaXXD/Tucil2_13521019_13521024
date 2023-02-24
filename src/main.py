@@ -2,6 +2,7 @@ import numpy as np
 from ClosestPair import*
 from Plot import*
 from time import time
+import Euclidean as e
 
 n = int(input("Masukkan banyaknya titik: "))
 d = int(input("Masukkan dimensi: "))
@@ -22,3 +23,4 @@ print(f'Point 2 : {closest_pair[1]}')
 print(f'Distance: {closest_pair[2]}')
 print(f'Waktu eksekusi divide and conquer: {"{:.2f}".format((end - start) * 1000)} ms')
 result_plot(points, closest_pair, d)
+print(f'Euclidean Distance Total Ops: {e.euclidCounter}')
