@@ -1,28 +1,24 @@
 import numpy as np
-import matplotlib.pyplot as plt
 from ClosestPair import*
 from Plot import*
+from time import time
 
 n = int(input("Masukkan banyaknya titik: "))
-# generate random points
-points = np.random.randint(-100, 100, (n, 3))
+d = int(input("Masukkan dimensi: "))
+points = np.random.randint(-1000, 1000, (n, d))
 
-min = 0
+start = time()
+min = brute_force(points)
+end = time()
+print(f'Waktu eksekusi brute force: {"{:.2f}".format((end - start) * 1000)} ms')
+print(f'Closest distance brute force: {min}')
 
-# brute force method to see closest distance
-for i in range(len(points)):
-    for j in range(i + 1, len(points)):
-        if min == 0:
-            min = np.linalg.norm(np.array(points[i]) - np.array(points[j]))
-        else:
-            if min > np.linalg.norm(np.array(points[i]) - np.array(points[j])):
-                min = np.linalg.norm(np.array(points[i]) - np.array(points[j]))
-
-print(min)
-
+start = time()
 closest_pair = closest_pair(points)
+end = time()
 print('Closest pair of points:')
 print(f'Point 1 : {closest_pair[0]}')
 print(f'Point 2 : {closest_pair[1]}')
 print(f'Distance: {closest_pair[2]}')
-result_plot(points, closest_pair)
+print(f'Waktu eksekusi divide and conquer: {"{:.2f}".format((end - start) * 1000)} ms')
+result_plot(points, closest_pair, d)
