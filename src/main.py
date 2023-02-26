@@ -1,4 +1,5 @@
 import numpy as np
+from System import *
 from ClosestPair import*
 from Plot import*
 from time import time
@@ -7,6 +8,9 @@ import Euclidean as e
 n = int(input("Masukkan banyaknya titik: "))
 d = int(input("Masukkan dimensi: "))
 points = np.random.randint(-1000, 1000, (n, d))
+
+print("\n== HARDWARE SPECIFICATION ==========----------")
+displaySpecification()
 
 start = time()
 min = brute_force(points)
