@@ -43,8 +43,8 @@ def brute_force(points):
     for i in range(len(points)):
         for j in range(i + 1, len(points)):
             if min[2] == 0:
-                min = points[i], points[j], np.linalg.norm(np.array(points[i]) - np.array(points[j]))
+                min = points[i], points[j], EuclideanDistance(points[i], points[j])
             else:
-                if min[2] > np.linalg.norm(np.array(points[i]) - np.array(points[j])):
-                    min = points[i], points[j], np.linalg.norm(np.array(points[i]) - np.array(points[j]))
+                if min[2] > EuclideanDistance(points[i], points[j]):
+                    min = points[i], points[j], EuclideanDistance(points[i], points[j])
     return min
