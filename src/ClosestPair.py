@@ -39,12 +39,12 @@ def closest_pair_strip(strip, d):
     return min_pair
 
 def brute_force(points):
-    min = 0
+    min = None, None, 0
     for i in range(len(points)):
         for j in range(i + 1, len(points)):
-            if min == 0:
-                min = np.linalg.norm(np.array(points[i]) - np.array(points[j]))
+            if min[2] == 0:
+                min = points[i], points[j], np.linalg.norm(np.array(points[i]) - np.array(points[j]))
             else:
-                if min > np.linalg.norm(np.array(points[i]) - np.array(points[j])):
-                    min = np.linalg.norm(np.array(points[i]) - np.array(points[j]))
+                if min[2] > np.linalg.norm(np.array(points[i]) - np.array(points[j])):
+                    min = points[i], points[j], np.linalg.norm(np.array(points[i]) - np.array(points[j]))
     return min

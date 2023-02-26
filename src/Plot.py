@@ -21,4 +21,4 @@ def result_plot(points, closest_pair, dimension):
         plt.show()
     
     else:
-        print('Plotting is only available in 2D and 3D')
+        print('Plotting is only available in 2D and 3D\n')
