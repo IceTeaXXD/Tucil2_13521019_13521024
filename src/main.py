@@ -58,9 +58,9 @@ if(dc_extime < bf_extime):
 else:
     print(f"Brute force is faster by {'{:.4f}'.format(dc_extime-bf_extime)} s")
 if(dc_euclidop < bf_euclidop):
-    print(f"Divide and conquer used {bf_euclidop-dc_euclidop} less euclidian distance operations")
+    print(f"Divide and conquer used {bf_euclidop-dc_euclidop} less euclidean distance operations")
 else:
-    print(f"Brute force used {dc_euclidop-bf_euclidop} less euclidian distance operations")
+    print(f"Brute force used {dc_euclidop-bf_euclidop} less euclidean distance operations")
 print("\n")
 
 result_plot(points, closest_pair, d)
