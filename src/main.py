@@ -35,6 +35,7 @@ print(f'Euclidean Distance Operations: {bf_euclidop}')
 # Solution by Divide and Conquer
 print("\n== DIVIDE AND CONQUER ==========--------------")
 start = time()
+points = SortPoints(points)
 closest_pair = closest_pair(points)
 end = time()
 dc_extime = (end-start)

@@ -8,16 +8,15 @@ def closest_pair(points):
     elif n == 2:
         return points[0], points[1], EuclideanDistance(points[0], points[1])
     else:
-        sorted_x = sorted(points, key=lambda p: p[0])
         mid = n // 2
-        left_x = sorted_x[:mid]
-        right_x = sorted_x[mid:]
+        left_x = points[:mid]
+        right_x = points[mid:]
 
         left_min_pair = closest_pair(left_x)
         right_min_pair = closest_pair(right_x)
         min_pair = left_min_pair if left_min_pair[2] < right_min_pair[2] else right_min_pair
 
-        mid_x = sorted_x[mid][0]
+        mid_x = points[mid][0]
         strip = []
         for point in points:
             if abs(point[0] - mid_x) < min_pair[2]:
