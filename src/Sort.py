@@ -1,4 +1,6 @@
 def SortPointsByX(points):
+    # I.S. points is a list of tuples
+    # F.S. returns a list of tuples sorted by the first element (x coordinate) of each tuple
     if len(points) <= 1:
         return points
     else:
@@ -8,6 +10,8 @@ def SortPointsByX(points):
         return SortPointsByX(less) + [pivot] + SortPointsByX(greater)
     
 def SortPointsByY(points):
+    # I.S. points is a list of tuples
+    # F.S. returns a list of tuples sorted by the second element (y coordinate) of each tuple
     if len(points) <= 1:
         return points
     else:

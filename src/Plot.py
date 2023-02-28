@@ -1,7 +1,8 @@
 import matplotlib.pyplot as plt
 
-# Plot given points in blue and the closest pair colored in red and draw a line between them in given dimension
 def result_plot(points, closest_pair, dimension):
+    # I.S. points is a list of tuples, closest_pair is a tuple of two tuples, and dimension is an integer
+    # F.S. Plot given points in blue and the closest pair colored in red and draw a line between them in given dimension
     if dimension == 2:
         fig = plt.figure()
         ax = fig.add_subplot(111)

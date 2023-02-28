@@ -8,13 +8,12 @@ from Sort import*
 import Euclidean as e
 
 # Splash Screen
-dsiplaySplash()
+displaySplash()
 
 # Inputs
 n = int(input("\nMasukkan banyaknya titik: "))
 d = int(input("Masukkan dimensi: "))
-points = np.random.uniform(-1000, 1000, (n, d))
-points = np.around(points, decimals=3)
+points = np.around(np.random.uniform(-1000, 1000, (n, d)),decimals=3)
 
 # Hardware Specification
 print("\n== HARDWARE SPECIFICATION ==========----------")
