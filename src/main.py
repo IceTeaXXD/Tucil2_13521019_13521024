@@ -12,7 +12,13 @@ displaySplash()
 
 # Inputs
 n = int(input("\nMasukkan banyaknya titik: "))
+while (n < 2):
+    print("Banyaknya titik harus lebih dari 1!")
+    n = int(input("Masukkan banyaknya titik: "))
 d = int(input("Masukkan dimensi: "))
+while (d < 2):
+    print("Dimensi harus lebih dari 1!")
+    d = int(input("Masukkan dimensi: "))
 points = np.around(np.random.uniform(-1000, 1000, (n, d)),decimals=3)
 
 # Hardware Specification
