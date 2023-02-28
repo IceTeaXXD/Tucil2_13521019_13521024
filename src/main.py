@@ -4,6 +4,7 @@ from System import *
 from ClosestPair import*
 from Plot import*
 from time import time
+from Sort import*
 import Euclidean as e
 
 # Splash Screen
@@ -12,7 +13,8 @@ dsiplaySplash()
 # Inputs
 n = int(input("\nMasukkan banyaknya titik: "))
 d = int(input("Masukkan dimensi: "))
-points = np.random.randint(-1000, 1000, (n, d))
+points = np.random.uniform(-1000, 1000, (n, d))
+points = np.around(points, decimals=3)
 
 # Hardware Specification
 print("\n== HARDWARE SPECIFICATION ==========----------")
@@ -35,7 +37,7 @@ print(f'Euclidean Distance Operations: {bf_euclidop}')
 # Solution by Divide and Conquer
 print("\n== DIVIDE AND CONQUER ==========--------------")
 start = time()
-points = SortPoints(points)
+points = SortPointsByX(points)
 closest_pair = closest_pair(points)
 end = time()
 dc_extime = (end-start)

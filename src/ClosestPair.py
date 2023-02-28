@@ -1,5 +1,6 @@
 import numpy as np
 from Euclidean import*
+from Sort import*
 
 def closest_pair(points):
     n = len(points)
@@ -8,15 +9,14 @@ def closest_pair(points):
     elif n == 2:
         return points[0], points[1], EuclideanDistance(points[0], points[1])
     else:
-        mid = n // 2
-        left_x = points[:mid]
-        right_x = points[mid:]
+        left_x = points[:n//2]
+        right_x = points[n//2:]
 
         left_min_pair = closest_pair(left_x)
         right_min_pair = closest_pair(right_x)
         min_pair = left_min_pair if left_min_pair[2] < right_min_pair[2] else right_min_pair
 
-        mid_x = points[mid][0]
+        mid_x = points[n//2][0]
         strip = []
         for point in points:
             if abs(point[0] - mid_x) < min_pair[2]:
@@ -27,7 +27,7 @@ def closest_pair(points):
 
 def closest_pair_strip(strip, d):
     min_pair = None, None, d
-    sorted_y = sorted(strip, key=lambda p: p[1])
+    sorted_y = SortPointsByY(strip)
     n = len(sorted_y)
     for i in range(n):
         for j in range(i+1, n):
